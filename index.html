@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159185279-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-159185279-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Primary Meta Tags -->
+  <title>Portfolio | Chris Pyles</title>
+  <meta name="title" content="Chris Pyles">
+  <meta
+    name="description"
+    content="A portfolio for Chris Pyles, a software engineer with experience in web development and ed-tech.."
+  >
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrispyles.io/">
+  <meta property="og:title" content="Chris Pyles">
+  <meta
+    property="og:description"
+    content="A portfolio for Chris Pyles, a software engineer with experience in web development and ed-tech."
+  >
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://chrispyles.io/">
+  <meta property="twitter:title" content="Chris Pyles">
+  <meta
+    property="twitter:description"
+    content="A portfolio for Chris Pyles, a software engineer with experience in web development and ed-tech."
+  >
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a58fb71897.js" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Noto+Sans+Mono&family=EB+Garamond&display=swap" rel="stylesheet">
+
+  <!-- Additional Styles -->
+  <link rel="stylesheet" type="text/css" href="build/styles/index.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav>
+    <a href="#">Portfolio | Chris Pyles</a>
+
+    <div class="right-nav">
+      <button
+        aria-label="Show menu"
+        class="menu-trigger"
+        onclick="$('.right-nav').toggleClass('show-menu')"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ol>
+        <li>
+          <a href="#about-me">About Me</a>
+        </li>
+
+        <li>
+          <a href="#experience">Experience</a>
+        </li>
+
+        <li>
+          <a href="#education">Education</a>
+        </li>
+
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li id="responsive-social-icons">
+          <!-- N.B. a script tag under the markup for the social icons copies them into this div. -->
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="full-height container force-center-content-vertically" id="about-me">
+      <p class="mono accent">
+        <span id="typewriter-0">Hi there, I'm</span>
+      </p>
+
+      <h1>
+        <span id="typewriter-1">Chris Pyles</span>
+      </h1>
+
+      <p>
+        I'm a software engineer, currently working at Google, with experience in web development and educational technology.
+      </p>
+
+      <script>
+        // simulate typewriter
+        const typewriters = $(`#about-me *`).filter((_, e) => e.id.startsWith('typewriter'));
+        const contents = typewriters.map((i, e) => $(e).text().trim());
+        var idx = 0;
+        function typeNextLetter() {
+          const query = `#typewriter-${typewriters.length - contents.length}`;
+          const el = $(query);
+          const nextLetter = contents[0][idx];
+          contents[0] = contents[0].slice(1);
+          if (contents[0].length === 0) {
+            contents.splice(0, 1);
+            moveCursor();
+          }
+          el.text(el.text() + nextLetter);
+          if (contents.length > 0) {
+            setTimeout(typeNextLetter, 200);
+          } else {
+            $('.cursor.typing').removeClass('typing');
+          }
+        }
+
+        function moveCursor() {
+          const c = $('.cursor');
+          if (c.length > 0) {
+            c.removeClass('cursor typing');
+          }
+          const query = `#typewriter-${typewriters.length - contents.length - (contents.length === 0 ? 1 : 0)}`;
+          $(query).addClass('cursor typing');
+        }
+
+        $('document').ready(() => {
+          typewriters.text('');
+          moveCursor();
+          typeNextLetter();
+        });
+      </script>
+    </div>
+
+    <!-- TODO: separate about me section here? -->
+
+    <!-- Work Experience -->
+    <div class="full-height container center-content-vertically" id="experience">
+      <h2>Experience</h2>
+
+      <div class="select-and-display">
+        <ul id="experience-select">
+          <li
+            onclick="showExperience(this, '#experience-google')"
+            role="button"
+            class="selected"
+          >
+            Google<br>
+            <em>May 2022 - Present</em>
+          </li>
+
+          <li
+            onclick="showExperience(this, '#experience-ixl')"
+            role="button"
+          >
+            IXL Learning<br>
+            <em>July 2021 - May 2022</em>
+          </li>
+
+          <li
+            onclick="showExperience(this, '#experience-microsoft')"
+            role="button"
+          >
+            Microsoft<br>
+            <em>October 2020 - June 2021</em>
+          </li>
+
+          <li
+            onclick="showExperience(this, '#experience-ucb')"
+            role="button"
+          >
+            UC Berkeley DSEP<br>
+            <em>May 2019 - June 2021</em>
+          </li>
+        </ul>
+
+        <div id="experience-target">
+          <div id="experience-google">
+            <div class="position-title">
+              <h3>Software Engineer</h3>
+              <p><em>Google, May 2022 - Present</em></p>
+            </div>
+
+            <p>I am currently a software egineer at Google building internal tooling for automated capacity management. This is primarly a web development role for an internal site built with Angular (in TypeScript) on the front-end and Go on the back-end. I've also contributed to backend microservices for automating service moves between data centers.</p>
+          </div>
+
+          <div id="experience-ixl">
+            <div class="position-title">
+              <h3>Software Engineer</h3>
+              <p><em>IXL Learning, July 2021 - May 2022</em></p>
+            </div>
+
+            <p>At IXL, I was a member of the Teacher Experience team, which works on maintaining and building new features for educators on IXL's platform. My role involved full-stack development in Struts and React, working on an Agile team with biweekly standups and releases. Within my first six months at IXL, I had already led a full-scale project to allow instructors to pin skill plans for specific classes instead of their entire roster, for which I designed the back-end, wrote a detailed design doc, and led the team through implementation. One of the other big projects I worked on at IXL was a complete refactor of the back-end for personalized skill plans for exams like the SAT, ACT, and NWEA MAP, a feature used by more than 250,000 users. For this project, I designed the new back-end and did most of the implementation.</p>
+          </div>
+
+          <div id="experience-microsoft">
+            <div class="position-title">
+              <h3>Contract Software Engineer</h3>
+              <p><em>Microsoft, October 2020 - June 2021</em></p>
+            </div>
+
+            <p>At Microsoft, I architected and engineered an open source Python auto-assessment solution called <a href="https://github.com/microsoft/pybryt" target="_blank">PyBryt</a> that implements a unique autograding structure grounded in the philosophy that intermediate to advanced programming courses should not require students to follow a rigid scaffold for solving problems. I provided engineering support to a series of pilots of PyBryt in courses of up to 1,200 students per semester at UC Berkeley, Imperial College London, and Tel Aviv University. I spent most of the first half of my time at Microsoft working on the initial release of and developing new features for PyBryt.</p>
+
+            <p>In the latter half of my time at Microsoft, I shifted focus to driving the adoption of PyBryt beyond its pilot courses (while still working on feature development). I created a <a href="https://github.com/microsoft/pybryt-action" target="_;blank">GitHub Action</a> to automate the use of PyBryt as a continuous integration tool for student repositories; I then used this Action to orchestrate a full-scale implementation of a real-world grading pipeline using GitHub Classroom for collecting different implementations of algorithms to be used to construct exercises for interactive Microsoft Learn modules. I also authored <a href="https://techcommunity.microsoft.com/t5/educator-developer-blog/pybryt-for-pedagogical-auto-assessment/ba-p/3263659" target="_blank">a blog post</a> and two Microsoft Learn modules on <a href="https://docs.microsoft.com/learn/modules/introduction-pybryt/" target="_blank">an introduction to</a> and <a href="https://docs.microsoft.com/en-us/learn/modules/advanced-pybryt/" target="_blank">advanced uses of</a> PyBryt geared towards academics looking to adopt the solution.</p>
+          </div>
+
+          <div id="experience-ucb">
+            <div class="position-title">
+              <h3>Lead Developer</h3>
+              <p><em>UC Berkeley Data Science Education Program, May 2019 - June 2021</em></p>
+            </div>
+
+            <p>I led a team of 8 developers working on 3 concurrent open source projects at a time often using previously-unfamiliar technologies. We used Agile methodologies to organize development cycles and encouraged parallelization of tasks, including performing code review and facilitating weekly meeting standups.</p>
+
+            <p>The main project I worked on is an open source Python and R autograding solution, <a href="https://github.com/ucbds-infra/otter-grader" target="_blank">Otter-Grader</a>, that scalably grades students' programming assignments and abstracts away autograding internals for instructors, which has been adopted in several courses at and outside of UC Berkeley and has used to grade assignments for over 10,000 students at UC Berkeley alone. Part of this work has been creating an open source community for development around GitHub and a public Slack to allow instructors and contributors to communicate effectively and to allow iterations on the package to be a community effort. I also led an interactive hands-on demonstration of autograding solutions and a presentation on the engineering and infrastructure constraints of those solutions at the <a href="https://data.berkeley.edu/academics/resources/data-science-education-resources/2020-national-workshop-data-science-education" target="_blank">2020 National Workshop on Data Science Education</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function showExperience(target, query) {
+          $(`#experience-select li`).each((_, e) => $(e).removeClass('selected'));
+          $(target).addClass('selected');
+          $(`#experience-target > div`).each((_, e) => $(e).hide());
+          $(`#experience-target ${query}`).show();
+        }
+      </script>
+    </div>
+
+    <!-- Education -->
+    <div class="full-height container center-content-vertically" id="education">
+      <h2>Education</h2>
+
+      <div class="degree">
+        <h3>University of California, Berkeley</h3>
+
+        <div>
+          <p>Bachelor's Degree, Major: Computer Science and Data Science (with Honors), Minor: Demography</p>
+          <p>August 2017 - May 2021</p>
+        </div>
+      </div>
+
+      <p>I graduated from UC Berkeley, earning a Bachelor's degree in Computer Science and Data Science. While at Berkeley, I tried to get involved in the campus communities surrounding my majors; I worked for two years at the Data Science Education Program, a subdivision of UC Berkeley's <a href="https://data.berkeley.edu/" target="_blank">Division of Computing, Data Science, and Society</a>. At DSEP, I worked not only as the lead developer for their infrastructure team, but also as a contributor for the data science curriculum and, eventually, as a TA for <a href="https://ds100.org/" target="_blank">Data 100</a>, a core upper-division data science course.</p>
+
+      <!-- TODO: fill this out a bit -->
+    </div>
+
+    <div class="full-height container center-content-vertically" id="skills">
+      <h2>Skills</h2>
+
+      <div class="skill-set">
+        <h3>Languages</h3>
+
+        <div class="skills">
+          <div class="skill">
+            <img data-shields-logo="python" alt="Python logo" />
+            Python
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="typescript" alt="TypeScript logo" />
+            TypeScript
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="go" alt="Golang logo" />
+            Go
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="javascript" alt="JavaScript logo" />
+            JavaScript
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="openjdk" alt="OpenJDK logo" />
+            Java
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="r" alt="R logo" />
+            R
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="ruby" alt="Ruby logo" />
+            Ruby
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="julia" alt="Julia logo" />
+            Julia
+          </div>
+        </div>
+
+        <h3>Frameworks</h3>
+
+        <div class="skills">
+          <div class="skill">
+            <img data-shields-logo="angular" alt="Angular logo" />
+            Angular
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="react" alt="React logo" />
+            React
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="django" alt="Django logo" />
+            Django
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="apache" Alt="Apache logo" />
+            Apache Struts
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="rubyonrails" alt="Rails logo" />
+            Ruby on Rails
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="nextdotjs" alt="Next.js logo" />
+            Next.js
+          </div>
+        </div>
+
+        <h3>Tools</h3>
+
+        <div class="skills">
+          <div class="skill">
+            <img data-shields-logo="git" alt="Git logo" />
+            Git
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="jupyter" alt="Jupyter logo" />
+            Jupyter
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="postgresql" alt="PostgreSQL logo" />
+            PostgreSQL
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="docker" alt="Docker logo" />
+            Docker
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="microsoftazure" alt="Azure logo" />
+            Azure
+          </div>
+
+          <div class="skill">
+            <img data-shields-logo="googlecloud" alt="Google Cloud logo" />
+            Google Cloud
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const LOGO_COLOR = getComputedStyle(document.documentElement).getPropertyValue('--color-text').slice(1);
+        function setImageSrc(imgEl) {
+          const i = $(imgEl);
+          const src = `https://cdn.simpleicons.org/${i.attr('data-shields-logo')}/${LOGO_COLOR}`;
+          i.attr('src', src);
+        }
+
+        $('.skill [data-shields-logo]').each((_, e) => setImageSrc(e));
+      </script>
+    </div>
+
+    <div class="full-height container center-content-vertically" id="projects">
+      <h2>Open-Source Projects</h2>
+
+      <div class="cards">
+        <a href="https://github.com/ucbds-infra/otter-grader" target="_blank">
+          <h3>
+            Otter-Grader
+            <img src="assets/projects/otter-logo.png" alt="Otter-Grader logo" />
+          </h3>
+
+          <p>Otter-Grader is a Python-based server-optional autograding solution that can grade both Python and R assignments.</p>
+
+          <p><em>Utilized: Python, R, Docker</em></p>
+        </a>
+
+        <a href="https://github.com/microsoft/pybryt" target="_blank">
+          <h3>
+            PyBryt
+            <i class="fas fa-external-link-alt"></i>
+          </h3>
+
+          <p>PyBryt is a Python auto-assessment tool designed to avoid the rigidly-structured unit test based autograding format of conventional autograders.</p>
+
+          <p><em>Utilized: Python, Jupyter Notebooks</em></p>
+        </a>
+
+        <a href="https://github.com/chrispyles/fica" target="_blank">
+          <h3>
+            <code>fica</code>
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect />
+              <g clip-path="url(#clip0_603_2)">
+                <rect />
+                <path d="M21.855 81.245C19.8183 81.245 18.1283 80.5083 16.785 79.035C15.3983 77.4317 14.705 75.3733 14.705 72.86V61.095C14.705 58.5383 14.2717 56.4367 13.405 54.79C13.0583 54.0967 12.6467 53.555 12.17 53.165C11.6933 52.7317 10.935 52.4067 9.895 52.19C8.985 52.0167 8.44333 51.8433 8.27 51.67C8.09667 51.4967 8.01 51.15 8.01 50.63V49.98C8.01 49.5033 8.11833 49.2 8.335 49.07C8.595 48.8967 9.13667 48.7017 9.96 48.485C11.65 48.0083 12.7983 47.12 13.405 45.82C14.2717 44.1733 14.705 42.0283 14.705 39.385V27.815C14.705 25.2583 15.42 23.2 16.85 21.64H16.785C18.0417 20.1233 19.7533 19.365 21.92 19.365H24.455C25.0617 19.365 25.4083 19.4083 25.495 19.495C25.625 19.5817 25.69 19.9283 25.69 20.535V21.575C25.69 22.1383 25.625 22.4633 25.495 22.55C25.4083 22.6367 25.0617 22.68 24.455 22.68H22.31C20.1867 22.68 19.125 24.825 19.125 29.115V40.555C19.125 45.5817 17.11 48.8317 13.08 50.305C17.11 51.9083 19.125 55.245 19.125 60.315V71.495C19.125 75.785 20.1867 77.93 22.31 77.93H24.585C25.1483 77.93 25.4733 77.9733 25.56 78.06C25.6467 78.1467 25.69 78.4717 25.69 79.035V80.14C25.69 80.7033 25.6467 81.0283 25.56 81.115C25.4733 81.2017 25.1267 81.245 24.52 81.245H21.855ZM61.115 25.085C61.5917 25.3017 61.8083 25.605 61.765 25.995L61.375 28.27C61.3317 28.53 61.2233 28.7033 61.05 28.79C60.8767 28.8333 60.7033 28.8117 60.53 28.725C59.8367 28.4217 59.0783 28.1833 58.255 28.01C57.475 27.8367 56.6733 27.75 55.85 27.75C53.2933 27.75 51.6467 29.0283 50.91 31.585C50.6067 32.625 50.455 34.9 50.455 38.41V41.725H61.83C62.4367 41.725 62.74 42.0283 62.74 42.635V44.585C62.74 45.1917 62.4367 45.495 61.83 45.495H50.455V71.885C50.455 72.4917 50.1517 72.795 49.545 72.795H47.01C46.4033 72.795 46.1 72.4917 46.1 71.885V45.495H38.235C37.6283 45.495 37.325 45.1917 37.325 44.585V42.635C37.325 42.0283 37.6283 41.725 38.235 41.725H46.1V38.865C46.1 34.1417 46.5333 30.74 47.4 28.66C48.7433 25.54 51.43 23.98 55.46 23.98C57.4967 23.98 59.3817 24.3483 61.115 25.085ZM78.145 19.365C80.1817 19.365 81.8717 20.1017 83.215 21.575C84.6017 23.1783 85.295 25.2367 85.295 27.75V39.515C85.295 42.0717 85.7283 44.1733 86.595 45.82C86.9417 46.5133 87.3533 47.0767 87.83 47.51C88.3067 47.9 89.065 48.2033 90.105 48.42C91.015 48.5933 91.5567 48.7667 91.73 48.94C91.9033 49.1133 91.99 49.46 91.99 49.98V50.63C91.99 51.1067 91.86 51.4317 91.6 51.605C91.3833 51.7783 90.8633 51.9517 90.04 52.125C88.35 52.6017 87.2017 53.49 86.595 54.79C85.7283 56.4367 85.295 58.5817 85.295 61.225V72.795C85.295 75.3517 84.58 77.41 83.15 78.97H83.215C81.9583 80.4867 80.2467 81.245 78.08 81.245H75.545C74.9383 81.245 74.57 81.2017 74.44 81.115C74.3533 81.0283 74.31 80.6817 74.31 80.075V79.035C74.31 78.4717 74.3533 78.1467 74.44 78.06C74.57 77.9733 74.9383 77.93 75.545 77.93H77.69C79.8133 77.93 80.875 75.785 80.875 71.495V60.055C80.875 55.0283 82.89 51.7783 86.92 50.305C82.89 48.7017 80.875 45.365 80.875 40.295V29.115C80.875 24.825 79.8133 22.68 77.69 22.68H75.415C74.8517 22.68 74.5267 22.6367 74.44 22.55C74.3533 22.4633 74.31 22.1383 74.31 21.575V20.47C74.31 19.9067 74.3533 19.5817 74.44 19.495C74.5267 19.4083 74.8733 19.365 75.48 19.365H78.145Z" fill="var(--color-text)"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_603_2">
+                  <rect width="100" height="100" />
+                </clipPath>
+              </defs>
+            </svg>
+          </h3>
+
+          <p><code>fica</code> is a Python package for managing and documenting configuration files. It can be used to define a type-safe structure for a configuration object and, in conjuction with Sphinx, create simple, formatted documentation for each value.</p>
+
+          <p><em>Utilized: Python, Metaprogramming, Sphinx</em></p>
+        </a>
+
+        <a href="https://github.com/chrispyles/scheme-interpreter" target="_blank">
+          <h3>
+            Scheme Interpreter
+            <i class="large serif">λ</i>
+          </h3>
+
+          <p>This project is a Scheme REPL that runs entirely in the browser. The Scheme interpreter is a Node.js module and its front-end is written with React.</p>
+
+          <p><em>Utilized: JavaScript, React, Node.js</em></p>
+        </a>
+
+        <a href="https://data-88e.github.io/" target="_blank">
+          <h3>
+            Data 88E
+            <i class="fas fa-external-link-alt"></i>
+          </h3>
+
+          <p>Data 88E is a course I co-created that applies introductory data science to economics; for my part, I built and ran the course infrastructure, and taught a unit on game theory.</p>
+
+          <p><em>Utilized: Python, Jupyter Notebooks</em></p>
+        </a>
+
+        <a href="https://github.com/data-8/datascience" target="_blank">
+          <h3>
+            <code>datascience</code>
+            <i class="fas fa-external-link-alt"></i>
+          </h3>
+
+          <p><code>datascience</code> is a pedagogical Python package for data science. I worked on the use of interactive plots created with <code>plotly</code> and expanded the mapping functionality with <code>folium</code>.</p>
+
+          <p><em>Utilized: Python, <code>plotly</code>, <code>folium</code></em></p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <div class="social" id="social-icons">
+    <div>
+      <a href="https://linkedin.com/in/chris-pyles" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <div>
+      <a href="https://github.com/chrispyles" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div>
+      <a href="https://letterboxd.com/chrispyles/" target="_blank" aria-label="Letterboxd">
+        <!-- Letterboxd logo SVG -->
+        <svg viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+              <rect id="path-1" x="0" y="0" width="129.847328" height="141.443299"></rect>
+              <rect id="path-3" x="0" y="0" width="129.847328" height="141.443299"></rect>
+          </defs>
+          <g id="letterboxd-decal-dots-pos-mono" stroke="none" stroke-width="1" fill-rule="evenodd">
+              <circle id="Circle" fill="inherit" cx="250" cy="250" r="250"></circle>
+              <g id="Dots" transform="translate(61.000000, 180.000000)">
+                  <ellipse id="Green" fill="var(--color-background)" cx="189" cy="70" rx="70.0786517" ry="70"></ellipse>
+                  <g id="Blue" transform="translate(248.152672, 0.000000)">
+                      <mask id="mask-2" fill="white">
+                          <use xlink:href="#path-1"></use>
+                      </mask>
+                      <g id="Mask"></g>
+                      <ellipse fill="var(--color-background)" mask="url(#mask-2)" cx="59.7686766" cy="70" rx="70.0786517" ry="70"></ellipse>
+                  </g>
+                  <g id="Orange">
+                      <mask id="mask-4" fill="white">
+                          <use xlink:href="#path-3"></use>
+                      </mask>
+                      <g id="Mask"></g>
+                      <ellipse fill="var(--color-background)" mask="url(#mask-4)" cx="70.0786517" cy="70" rx="70.0786517" ry="70"></ellipse>
+                  </g>
+                  <path d="M129.539326,107.063108 C122.810493,96.3149291 118.921348,83.611134 118.921348,70 C118.921348,56.388866 122.810493,43.6850709 129.539326,32.9368922 C136.268159,43.6850709 140.157303,56.388866 140.157303,70 C140.157303,83.611134 136.268159,96.3149291 129.539326,107.063108 L129.539326,107.063108 Z" id="Overlap"></path>
+                  <path d="M248.460674,32.9368922 C255.189507,43.6850709 259.078652,56.388866 259.078652,70 C259.078652,83.611134 255.189507,96.3149291 248.460674,107.063108 C241.731841,96.3149291 237.842697,83.611134 237.842697,70 C237.842697,56.388866 241.731841,43.6850709 248.460674,32.9368922 L248.460674,32.9368922 Z" id="Overlap"></path>
+              </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <div class="line"></div>
+  </div>
+
+  <script>
+    $('#responsive-social-icons').append($('#social-icons').clone().removeAttr('id'));
+  </script>
+</body>
+</html>
