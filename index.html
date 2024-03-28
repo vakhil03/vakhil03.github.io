@@ -180,97 +180,64 @@
     </div>
 
     <!-- Work Experience -->
-    <div class="full-height container center-content-vertically" id="experience">
-      <h2>Experience</h2>
+    <!-- Work Experience -->
+<div class="full-height container center-content-vertically" id="experience">
+  <h2>Experience</h2>
 
-      <div class="select-and-display">
-        <ul id="experience-select">
-          <li
-            onclick="showExperience(this, '#experience-google')"
-            role="button"
-            class="selected"
-          >
-            Google<br>
-            <em>May 2022 - Present</em>
-          </li>
+  <div class="select-and-display">
+    <!-- List of work experiences -->
+    <ul id="experience-select">
+      <li onclick="showExperience(this, '#experience-google')" role="button" class="selected">
+        Google<br>
+        <em>May 2022 - Present</em>
+      </li>
+      <li onclick="showExperience(this, '#experience-ixl')" role="button">
+        IXL Learning<br>
+        <em>July 2021 - May 2022</em>
+      </li>
+      <!-- Add more work experience entries as needed -->
+    </ul>
 
-          <li
-            onclick="showExperience(this, '#experience-ixl')"
-            role="button"
-          >
-            IXL Learning<br>
-            <em>July 2021 - May 2022</em>
-          </li>
-
-          <li
-            onclick="showExperience(this, '#experience-microsoft')"
-            role="button"
-          >
-            Microsoft<br>
-            <em>October 2020 - June 2021</em>
-          </li>
-
-          <li
-            onclick="showExperience(this, '#experience-ucb')"
-            role="button"
-          >
-            UC Berkeley DSEP<br>
-            <em>May 2019 - June 2021</em>
-          </li>
-        </ul>
-
-        <div id="experience-target">
-          <div id="experience-google">
-            <div class="position-title">
-              <h3>Software Engineer</h3>
-              <p><em>Google, May 2022 - Present</em></p>
-            </div>
-
-            <p>I am currently a software egineer at Google building internal tooling for automated capacity management. This is primarly a web development role for an internal site built with Angular (in TypeScript) on the front-end and Go on the back-end. I've also contributed to backend microservices for automating service moves between data centers.</p>
-          </div>
-
-          <div id="experience-ixl">
-            <div class="position-title">
-              <h3>Software Engineer</h3>
-              <p><em>IXL Learning, July 2021 - May 2022</em></p>
-            </div>
-
-            <p>At IXL, I was a member of the Teacher Experience team, which works on maintaining and building new features for educators on IXL's platform. My role involved full-stack development in Struts and React, working on an Agile team with biweekly standups and releases. Within my first six months at IXL, I had already led a full-scale project to allow instructors to pin skill plans for specific classes instead of their entire roster, for which I designed the back-end, wrote a detailed design doc, and led the team through implementation. One of the other big projects I worked on at IXL was a complete refactor of the back-end for personalized skill plans for exams like the SAT, ACT, and NWEA MAP, a feature used by more than 250,000 users. For this project, I designed the new back-end and did most of the implementation.</p>
-          </div>
-
-          <div id="experience-microsoft">
-            <div class="position-title">
-              <h3>Contract Software Engineer</h3>
-              <p><em>Microsoft, October 2020 - June 2021</em></p>
-            </div>
-
-            <p>At Microsoft, I architected and engineered an open source Python auto-assessment solution called <a href="https://github.com/microsoft/pybryt" target="_blank">PyBryt</a> that implements a unique autograding structure grounded in the philosophy that intermediate to advanced programming courses should not require students to follow a rigid scaffold for solving problems. I provided engineering support to a series of pilots of PyBryt in courses of up to 1,200 students per semester at UC Berkeley, Imperial College London, and Tel Aviv University. I spent most of the first half of my time at Microsoft working on the initial release of and developing new features for PyBryt.</p>
-
-            <p>In the latter half of my time at Microsoft, I shifted focus to driving the adoption of PyBryt beyond its pilot courses (while still working on feature development). I created a <a href="https://github.com/microsoft/pybryt-action" target="_;blank">GitHub Action</a> to automate the use of PyBryt as a continuous integration tool for student repositories; I then used this Action to orchestrate a full-scale implementation of a real-world grading pipeline using GitHub Classroom for collecting different implementations of algorithms to be used to construct exercises for interactive Microsoft Learn modules. I also authored <a href="https://techcommunity.microsoft.com/t5/educator-developer-blog/pybryt-for-pedagogical-auto-assessment/ba-p/3263659" target="_blank">a blog post</a> and two Microsoft Learn modules on <a href="https://docs.microsoft.com/learn/modules/introduction-pybryt/" target="_blank">an introduction to</a> and <a href="https://docs.microsoft.com/en-us/learn/modules/advanced-pybryt/" target="_blank">advanced uses of</a> PyBryt geared towards academics looking to adopt the solution.</p>
-          </div>
-
-          <div id="experience-ucb">
-            <div class="position-title">
-              <h3>Lead Developer</h3>
-              <p><em>UC Berkeley Data Science Education Program, May 2019 - June 2021</em></p>
-            </div>
-
-            <p>I led a team of 8 developers working on 3 concurrent open source projects at a time often using previously-unfamiliar technologies. We used Agile methodologies to organize development cycles and encouraged parallelization of tasks, including performing code review and facilitating weekly meeting standups.</p>
-
-            <p>The main project I worked on is an open source Python and R autograding solution, <a href="https://github.com/ucbds-infra/otter-grader" target="_blank">Otter-Grader</a>, that scalably grades students' programming assignments and abstracts away autograding internals for instructors, which has been adopted in several courses at and outside of UC Berkeley and has used to grade assignments for over 10,000 students at UC Berkeley alone. Part of this work has been creating an open source community for development around GitHub and a public Slack to allow instructors and contributors to communicate effectively and to allow iterations on the package to be a community effort. I also led an interactive hands-on demonstration of autograding solutions and a presentation on the engineering and infrastructure constraints of those solutions at the <a href="https://data.berkeley.edu/academics/resources/data-science-education-resources/2020-national-workshop-data-science-education" target="_blank">2020 National Workshop on Data Science Education</a>.</p>
-          </div>
+    <!-- Container to display details of each work experience -->
+    <div id="experience-target">
+      <!-- Details of Google work experience -->
+      <div id="experience-google">
+        <div class="position-title">
+          <h3>Software Engineer</h3>
+          <p><em>Google, May 2022 - Present</em></p>
         </div>
+        <p>I am currently a software engineer at Google building internal tooling for automated capacity management...</p>
       </div>
-
-      <script>
-        function showExperience(target, query) {
-          $(`#experience-select li`).each((_, e) => $(e).removeClass('selected'));
-          $(target).addClass('selected');
-          $(`#experience-target > div`).each((_, e) => $(e).hide());
-          $(`#experience-target ${query}`).show();
-        }
-      </script>
+      <!-- Details of IXL Learning work experience -->
+      <div id="experience-ixl" style="display: none;">
+        <div class="position-title">
+          <h3>Software Engineer</h3>
+          <p><em>IXL Learning, July 2021 - May 2022</em></p>
+        </div>
+        <p>At IXL, I was a member of the Teacher Experience team, which works on maintaining and building new features for educators on IXL's platform...</p>
+      </div>
+      <!-- Add more divs for other work experiences -->
     </div>
+  </div>
+
+  <script>
+    // Function to show details of selected work experience
+    function showExperience(target, query) {
+      // Remove 'selected' class from all entries
+      $('#experience-select li').each(function() {
+        $(this).removeClass('selected');
+      });
+      // Add 'selected' class to the clicked entry
+      $(target).addClass('selected');
+      // Hide all experience details divs
+      $('#experience-target > div').each(function() {
+        $(this).hide();
+      });
+      // Show details of the selected experience
+      $(query).show();
+    }
+  </script>
+</div>
     
 
     <footer class="footer">
