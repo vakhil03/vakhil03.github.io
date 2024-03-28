@@ -122,6 +122,59 @@
       </div>
     </section>
 
+    <main class="container">
+    <div class="full-height container force-center-content-vertically" id="about-me">
+      <p class="mono accent">
+        <span id="typewriter-0">Hi there, I'm</span>
+      </p>
+
+      <h1>
+        <span id="typewriter-1">Chris Pyles</span>
+      </h1>
+
+      <p>
+        I'm a software engineer, currently working at Google, with experience in web development and educational technology.
+      </p>
+
+      <script>
+        // simulate typewriter
+        const typewriters = $(`#about-me *`).filter((_, e) => e.id.startsWith('typewriter'));
+        const contents = typewriters.map((i, e) => $(e).text().trim());
+        var idx = 0;
+        function typeNextLetter() {
+          const query = `#typewriter-${typewriters.length - contents.length}`;
+          const el = $(query);
+          const nextLetter = contents[0][idx];
+          contents[0] = contents[0].slice(1);
+          if (contents[0].length === 0) {
+            contents.splice(0, 1);
+            moveCursor();
+          }
+          el.text(el.text() + nextLetter);
+          if (contents.length > 0) {
+            setTimeout(typeNextLetter, 200);
+          } else {
+            $('.cursor.typing').removeClass('typing');
+          }
+        }
+
+        function moveCursor() {
+          const c = $('.cursor');
+          if (c.length > 0) {
+            c.removeClass('cursor typing');
+          }
+          const query = `#typewriter-${typewriters.length - contents.length - (contents.length === 0 ? 1 : 0)}`;
+          $(query).addClass('cursor typing');
+        }
+
+        $('document').ready(() => {
+          typewriters.text('');
+          moveCursor();
+          typeNextLetter();
+        });
+      </script>
+    </div>
+
     <!-- Work Experience -->
     <div class="full-height container center-content-vertically" id="experience">
       <h2>Experience</h2>
