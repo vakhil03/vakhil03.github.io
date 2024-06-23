@@ -83,11 +83,11 @@
           🔎︎ What makes me "whole"?
           <br>
           <br>
-          Entrepreneurship · Social Impact · Technology · Sleep (I don't drink coffee!)
+          Technology · Entrepreneurship · Social Impact · Sleep (and I need a lot of it)
           <br>
           <br>
-          I was born in Finland and lived in Singapore for a decade before moving to the United States for my undergraduate studies. I enjoy singing, cooking, and playing chess!
-          I am a United Nations Awardee, Google Scholar, CAA Leadership Awardee, College of Computing Undergraduate Advisory Board Member, Indian Ministry of Culture Awardee, 
+          I was born in Finland and lived in Singapore for a decade before moving to the United States to pursue a dual degree in Data Science & Economics. I enjoy singing, cooking, playing tennis, and playing chess!
+          I am a United Nations Awardee, Berkeley Changemaker, CAA Leadership Awardee, College of Computing Undergraduate Advisory Board Member, SCET Gold-Tier Innovation Fellow, 
           and currently serve on the National Student Advisory Committee for Enactus, a student-led global social impact entrepreneurship movement spanning 33+ countries.
         </p>
       </div>
@@ -98,13 +98,13 @@
         <div class="tech">
           <h2>Languages</h2>
           <i class="devicon-python-plain colored"></i>
+          <i class="devicon-azuresqldatabase-plain"></i>
           <i class="devicon-java-plain-wordmark colored"></i>
-          <i class="devicon-cplusplus-plain colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
+          <i class="devicon-rstudio-plain"></i>
           <p>My favorite programming languages!</p>
         </div>
 
-        <!-- Technology Stack #2: ML Libraries -->
+        <!-- Technology Stack #2: Data Viz -->
         <div class="tech">
           <h2>Back-End</h2>
           <i class="devicon-nodejs-plain colored"></i>
@@ -114,132 +114,21 @@
           <p>What I prefer to use to get the machine learning juices flowing.</p>
         </div>
 
-        <!-- Technology Stack #3: Tools -->
+        <!-- Technology Stack #3: Libraries -->
         <div class="tech">
           <h2>Tools</h2>
-          <i class="devicon-git-plain-wordmark colored"></i>
-          <i class="devicon-visualstudio-plain colored"></i>
-          <i class="devicon-github-plain-wordmark colored"></i>
-          <i class="devicon-docker-plain-wordmark colored"></i>
+          <i class="devicon-pandas-plain"></i>
+          <i class="devicon-numpy-plain"></i>
+          <i class="devicon-matplotlib-plain"></i>
+          <i class="devicon-scikitlearn-plain"></i>
+          <i class="devicon-opencv-plain"></i>
+          <i class="devicon-keras-plain"></i>
+          <i class="devicon-tensorflow-original"></i>
+
           <p>My favorite tools for version control and code editing.</p>
         </div>
       </div>
     </section>
-
-    <main class="container">
-    <div class="full-height container force-center-content-vertically" id="about-me">
-      <p class="mono accent">
-        <span id="typewriter-0">Hi there, I'm</span>
-      </p>
-
-      <h1>
-        <span id="typewriter-1">Chris Pyles</span>
-      </h1>
-
-      <p>
-        I'm a software engineer, currently working at Google, with experience in web development and educational technology.
-      </p>
-
-      <script>
-        // simulate typewriter
-        const typewriters = $(`#about-me *`).filter((_, e) => e.id.startsWith('typewriter'));
-        const contents = typewriters.map((i, e) => $(e).text().trim());
-        var idx = 0;
-        function typeNextLetter() {
-          const query = `#typewriter-${typewriters.length - contents.length}`;
-          const el = $(query);
-          const nextLetter = contents[0][idx];
-          contents[0] = contents[0].slice(1);
-          if (contents[0].length === 0) {
-            contents.splice(0, 1);
-            moveCursor();
-          }
-          el.text(el.text() + nextLetter);
-          if (contents.length > 0) {
-            setTimeout(typeNextLetter, 200);
-          } else {
-            $('.cursor.typing').removeClass('typing');
-          }
-        }
-
-        function moveCursor() {
-          const c = $('.cursor');
-          if (c.length > 0) {
-            c.removeClass('cursor typing');
-          }
-          const query = `#typewriter-${typewriters.length - contents.length - (contents.length === 0 ? 1 : 0)}`;
-          $(query).addClass('cursor typing');
-        }
-
-        $('document').ready(() => {
-          typewriters.text('');
-          moveCursor();
-          typeNextLetter();
-        });
-      </script>
-    </div>
-
-    <!-- Work Experience -->
-    <!-- Work Experience -->
-<div class="full-height container center-content-vertically" id="experience">
-  <h2>Experience</h2>
-
-  <div class="select-and-display">
-    <!-- List of work experiences -->
-    <ul id="experience-select">
-      <li onclick="showExperience(this, '#experience-google')" role="button" class="selected">
-        Google<br>
-        <em>May 2022 - Present</em>
-      </li>
-      <li onclick="showExperience(this, '#experience-ixl')" role="button">
-        IXL Learning<br>
-        <em>July 2021 - May 2022</em>
-      </li>
-      <!-- Add more work experience entries as needed -->
-    </ul>
-
-    <!-- Container to display details of each work experience -->
-    <div id="experience-target">
-      <!-- Details of Google work experience -->
-      <div id="experience-google">
-        <div class="position-title">
-          <h3>Software Engineer</h3>
-          <p><em>Google, May 2022 - Present</em></p>
-        </div>
-        <p>I am currently a software engineer at Google building internal tooling for automated capacity management...</p>
-      </div>
-      <!-- Details of IXL Learning work experience -->
-      <div id="experience-ixl" style="display: none;">
-        <div class="position-title">
-          <h3>Software Engineer</h3>
-          <p><em>IXL Learning, July 2021 - May 2022</em></p>
-        </div>
-        <p>At IXL, I was a member of the Teacher Experience team, which works on maintaining and building new features for educators on IXL's platform...</p>
-      </div>
-      <!-- Add more divs for other work experiences -->
-    </div>
-  </div>
-
-  <script>
-    // Function to show details of selected work experience
-    function showExperience(target, query) {
-      // Remove 'selected' class from all entries
-      $('#experience-select li').each(function() {
-        $(this).removeClass('selected');
-      });
-      // Add 'selected' class to the clicked entry
-      $(target).addClass('selected');
-      // Hide all experience details divs
-      $('#experience-target > div').each(function() {
-        $(this).hide();
-      });
-      // Show details of the selected experience
-      $(query).show();
-    }
-  </script>
-</div>
-    
-
     <footer class="footer">
       <p>&copy; Akhil Venkatesh, 2024</p>
     </footer>
